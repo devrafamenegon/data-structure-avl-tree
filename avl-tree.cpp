@@ -16,10 +16,6 @@ struct NO {
 
 typedef NO *PONT;
 
-PONT inicializa() { return (NULL); }
-
-PONT criaNo(TIPOCHAVE ch) { return new NO(ch); }
-
 int max(int a, int b) { return (a > b) ? a : b; }
 
 int altura(PONT r) {
@@ -58,7 +54,7 @@ PONT direitaEsquerda(PONT r) {
 }
 
 PONT insere(PONT raiz, TIPOCHAVE ch) {
-  if (!raiz) return criaNo(ch);
+  if (!raiz) return new NO(ch);
   if (ch < raiz->chave) {
     raiz->esq = insere(raiz->esq, ch);
     if ((altura(raiz->esq) - altura(raiz->dir)) == 2)
@@ -154,8 +150,8 @@ PONT removeNo(PONT raiz, TIPOCHAVE ch) {
 
 int main() {
   PONT r, r1;
-  r = inicializa();
-  r1 = inicializa();
+  r = NULL;
+  r1 = NULL;
   PONT p;
   r1 = insere(r, 2);
   r1 = insere(r, 8);
